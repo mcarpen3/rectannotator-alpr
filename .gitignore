@@ -1,3 +1,9 @@
 build
-license-plate-detection
+license-plate-detection/dataset/images*
+license-plate-detection/Lib/site-packages
+license-plate-detection/runs
+license-plate-detection/Scripts
+license-plate-detection/dataset/labels
+
 lpcrops
+license-plate-detection/**/node_modules

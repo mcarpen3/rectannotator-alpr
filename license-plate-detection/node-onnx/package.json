@@ -1,0 +1,9 @@
+{
+  "type":"commonjs",
+  "dependencies": {
+    "ndarray": "^1.0.19",
+    "ndarray-ops": "^1.2.2",
+    "onnxruntime-node": "^1.22.0-rev",
+    "sharp": "^0.34.3"
+  }
+}
