@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.evo": "html",
+        "*.dai": "html",
+        "*.flt": "html",
+        "cctype": "c",
+        "locale": "c",
+        "xlocale": "c"
+    }
+}
