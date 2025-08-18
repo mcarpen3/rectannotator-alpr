@@ -13,3 +13,6 @@ Output: CUDA Version: 11.8
 
 ## build the rectannotator
 `cmake --build build`
+
+## generate keyframe jpgs
+`ffmpeg -i <input-mp4> -vf \"select='eq(pict_type\\,I)*not(mod(n\\,4))',showinfo\" -vsync vfr <path-to-pngs>/frame_%%04d.png`
