@@ -8,3 +8,4 @@ license-plate-detection/dataset/labels
 lpcrops
 license-plate-detection/**/node_modules
 lpannotations
+lptextannotations
