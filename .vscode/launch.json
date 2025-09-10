@@ -9,7 +9,8 @@
             "type": "cppvsdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/RectAnnotatorAlpr.exe",
-            "args": ["C:\\Users\\VuVault\\Documents\\code\\evo\\evo_hd\\rectannotator-alpr\\license-plate-detection\\dataset\\images86"],
+            // "args": ["C:\\Users\\VuVault\\Documents\\code\\evo\\evo_hd\\rectannotator-alpr\\license-plate-detection\\dataset\\images"],
+            "args": ["${workspaceFolder}/lpcrops"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [{

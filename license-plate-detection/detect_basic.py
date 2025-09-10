@@ -4,8 +4,8 @@ import os
 import numpy as np
 
 # --- config ---
-weights_path = "runs/detect/train6/weights/best.pt"
-image_path   = "dataset/images2/2AE1A25C7E20250811153004051_FF1_0.jpg"
+weights_path = "runs/detect/train8/weights/best.pt"
+image_path   = "J:\\alpr-dataset\\20250818\images\\frame_0198.png"
 conf_thresh  = 0.25          # adjust as desired
 pick         = "best"        # "best" or "all"
 
@@ -29,7 +29,6 @@ if not plate_cls_ids and len(names) == 1:
     plate_cls_ids = {0}  # single-class model
 
 boxes = r.boxes  # ultralytics.engine.results.Boxes
-print(f"boxes ")
 H, W = img.shape[:2]
 crops = []  # (crop, (x1,y1,x2,y2), score)
 
@@ -39,6 +38,7 @@ if boxes is not None and len(boxes) > 0:
     cls  = boxes.cls.cpu().numpy().astype(int)
 
     for (x1, y1, x2, y2), score, cid in zip(xyxy, conf, cls):
+        print(f"box: ({x1}, {y1}, {x2}, {y2}) conf: {score}")
         if cid in plate_cls_ids:
             # clamp to image bounds
             x1 = int(max(0, min(W - 1, x1)))

@@ -34,4 +34,24 @@ Output: CUDA Version: 11.8
 `cmake --build build`
 
 ## generate keyframe jpgs
-`ffmpeg -i <input-mp4> -vf \"select='eq(pict_type\\,I)*not(mod(n\\,4))',showinfo\" -vsync vfr <path-to-pngs>/frame_%%04d.png`
+  - Generate an image for every 4th keyframe in the input-mp4
+`ffmpeg -i <input-mp4> -vf "select='eq(pict_type\,I)*not(mod(n\,4))',showinfo" -vsync vfr <path-to-pngs>/frame_%04d.png`
+
+## train the yolo model on a dataset
+`yolo detect train data=<path-to-dataset.yaml> model=yolov8n.pt epochs=50 imgsz=640`
+  - example yaml file
+```
+path: dataset
+train: images
+val: images
+labels: labels
+
+names:
+    0: license_plate
+```
+  - This will prompt YOLO to look in the folder dataset for an images folder and a labels folder.
+  * The yolov8n.pt is the base YOLOv8n model provided by ultralytics package.
+    * To train the model for-instance on a second set of data without losing the original training:
+      * Instead of pointing the `yolo detect train...` command to the base model `yolov8n.pt` point it to the best.pt model inside the latest `predict*/train*/weights*` folder
+      * The predict*/train*/weights* folders contain the model snapshot from the previous run.
+
