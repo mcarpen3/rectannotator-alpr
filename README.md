@@ -32,3 +32,9 @@ Output: CUDA Version: 11.8
 
 ## build the rectannotator
 `cmake --build build`
+## create training data
+ - Run `ffmpeg -i <input-mp4> -vf \"select='eq(pict_type\\,I)*not(mod(n\\,4))',showinfo\" -vsync vfr <path-to-pngs>/frame_%%04d.png`
+   - This will generate pngs from keyframes in a sample video.
+   - The path-to-pngs will be given as the first argument to the rectannotator program
+## run the program
+ - .\build\RectAnnotatorAlpr.exe <path-to-pngs>
